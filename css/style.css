@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #36393e;
+  color: #fff;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-top: 30px;
+  color: #9f72da;
+}
+
+#balance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  justify-content: center;
+}
+
+#submit {
+  margin-top: -10px;
+  margin-right: 20px;
+  border-radius: 6px;
+  height: 40px;
+  width: 200px;
+  font-size: 14px;
+  background-color: #9f72da;
+  color: #fff;
+}
+
+.list {
+  max-height: 450px;
+  overflow: auto;
+}
+
+/*Przychody*/
+
+.income {
+  display: flex;
+  flex-direction: column;
+  min-width: calc(300px - 10px);
+  margin: 5px;
+  height: 600px;
+  background-color: #1e2124;
+}
+
+.txtIncome {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#incomeMain {
+  display: flex;
+  align-items: center;
+}
+
+#inputIncome {
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #424549;
+  color: #fff;
+}
+
+#inputIncomeValue {
+  margin-right: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #424549;
+  color: #fff;
+}
+
+#btnRemoveIncome {
+  float: right;
+  border-radius: 6px;
+  background-color: #9f72da;
+  height: 40px;
+  width: 60px;
+  font-size: 14px;
+  color: #fff;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#incomesList {
+  display: flex;
+}
+
+#incomesList {
+  display: flex;
+  margin-left: 20px;
+}
+
+.incomesOrder {
+  width: 100%;
+  margin-top: auto;
+  background-color: #1e2124;
+}
+
+#incomes {
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.lineIncome {
+  border: 1px solid #424549;
+  height: 2px;
+  width: 90%;
+  margin: 10px auto;
+}
+
+/*Wydatki*/
+
+.expenses {
+  display: flex;
+  flex-direction: column;
+  min-width: calc(300px - 10px);
+  margin: 5px;
+  height: 600px;
+  background-color: #1e2124;
+}
+
+.txtExpenses {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#expenseMain {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+ul:not(.browser-default) > li {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+ul:not(.browser-default) {
+  display: flex;
+  flex-direction: column;
+}
+
+#inputExpenses {
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #424549;
+  color: #fff;
+}
+
+#inputExpensesValue {
+  margin-right: 20px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #424549;
+  color: #fff;
+}
+
+#expensesList {
+  display: flex;
+  margin-left: 20px;
+}
+
+#btnRemoveExpense {
+  float: right;
+  border-radius: 6px;
+  background-color: #9f72da;
+  height: 40px;
+  width: 60px;
+  font-size: 14px;
+  color: #fff;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.expenseOrder {
+  width: 100%;
+  margin-top: auto;
+  background-color: #1e2124;
+}
+
+#expenses {
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.lineExpense {
+  border: 1px solid #424549;
+  height: 2px;
+  width: 90%;
+  margin: 10px auto;
+}
+
+/*EDIT*/
+
+#btnEditIncome {
+  float: right;
+  border-radius: 6px;
+  background-color: #9f72da;
+  height: 40px;
+  width: 60px;
+  font-size: 14px;
+  color: #fff;
+}
+
+#btnEditExpense {
+  float: right;
+  border-radius: 6px;
+  background-color: #9f72da;
+  height: 40px;
+  width: 60px;
+  font-size: 14px;
+  color: #fff;
+}
+
+#editInputNameIncome {
+  width: 35%;
+  background-color: #424549;
+  color: #fff;
+}
+#editInputValueIncome {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 35%;
+  background-color: #424549;
+  color: #fff;
+}
+
+#editInputNameExpense {
+  width: 35%;
+  background-color: #424549;
+  color: #fff;
+}
+#editInputValueExpense {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 35%;
+  background-color: #424549;
+  color: #fff;
+}
+
+.btnSave {
+  color: green;
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+.btnSaveExpense {
+  color: green;
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+.btnCancel {
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+.btnCancelExpense {
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+  font-weight: bold;
+  background: none;
+  border: none;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Domowy budżet</title>
+  </head>
+  <body>
+    <i class="fa-solid fa-wallet fa-7x logo"></i>
+    <div id="balance"></div>
+    <div class="mainContainer">
+      <div class="income">
+        <p class="txtIncome">Przychody</p>
+        <form id="incomeMain">
+          <input
+            id="inputIncome"
+            type="text"
+            placeholder="Nazwa przychodu"
+            value=""
+          />
+          <input
+            id="inputIncomeValue"
+            type="number"
+            placeholder="Kwota"
+            value=""
+            min="0"
+            required
+            step=".01"
+          />
+          <input id="submit" type="submit" value="Dodaj" />
+        </form>
+        <div class="lineIncome"></div>
+        <div class="list"><ul id="incomesList"></ul></div>
+        <div class="incomesOrder"><p id="incomes"></p></div>
+      </div>
+
+      <div class="expenses">
+        <p class="txtExpenses">Wydatki</p>
+        <form id="expenseMain">
+          <input
+            id="inputExpenses"
+            type="text"
+            placeholder="Nazwa wydatku"
+            value=""
+          />
+          <input
+            id="inputExpensesValue"
+            type="number"
+            placeholder="Kwota"
+            value=""
+            min="0"
+            required
+            step=".01"
+          />
+          <input id="submit" type="submit" value="Dodaj" />
+        </form>
+        <div class="lineExpense"></div>
+        <div class="list"><ul id="expensesList"></ul></div>
+        <div class="expenseOrder"><p id="expenses"></p></div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/materialize.min.js"></script>
+  </body>
+</html>
