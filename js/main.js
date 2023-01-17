@@ -104,8 +104,8 @@ incomeMain.addEventListener("submit", (e) => {
 
     btnCancelIncome.addEventListener("click", (e) => {
       incomesListPoint.innerText = `${income.title} - ${income.incomeValue} zł`;
-      incomesListPoint.appendChild(btnEditIncome);
       incomesListPoint.appendChild(btnRemoveIncome);
+      incomesListPoint.appendChild(btnEditIncome);
     });
   });
 
@@ -196,8 +196,8 @@ expenseMain.addEventListener("submit", (e) => {
 
     btnCancelExpense.addEventListener("click", (e) => {
       expensesListPoint.innerText = `${expense.title}: ${expense.expenseValue} zł`;
-      expensesListPoint.appendChild(btnEdit);
       expensesListPoint.appendChild(btnRemoveExpense);
+      expensesListPoint.appendChild(btnEdit);
     });
   });
 
