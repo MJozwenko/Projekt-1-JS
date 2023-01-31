@@ -32,6 +32,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   }
 
+  function deleteElement() {
+    let close = document.querySelectorAll(
+      "#btnRemoveIncome, #btnRemoveExpense"
+    );
+    let i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function () {
+        let elementToBeDeleted = this.parentElement;
+        elementToBeDeleted.remove();
+      };
+    }
+  }
+
   //Przychody
 
   incomeMain.addEventListener("submit", (e) => {
@@ -60,17 +73,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     inputIncome.value = "";
     inputIncomeValue.value = "";
-
-    function deleteElement() {
-      let close = document.getElementById("btnRemoveIncome");
-      let i;
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-          let elementToBeDeleted = this.parentElement;
-          elementToBeDeleted.remove();
-        };
-      }
-    }
 
     btnEditIncome.addEventListener("click", (e) => {
       incomesListPoint.innerHTML = "";
@@ -158,17 +160,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     inputExpenses.value = "";
     inputExpensesValue.value = "";
-
-    function deleteElement() {
-      let close = document.getElementById("btnRemoveExpense");
-      let i;
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-          let elementToBeDeleted = this.parentElement;
-          elementToBeDeleted.remove();
-        };
-      }
-    }
 
     btnEdit.addEventListener("click", (e) => {
       expensesListPoint.innerHTML = "";
