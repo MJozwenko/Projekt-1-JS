@@ -15,17 +15,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const expensesList = document.getElementById("expensesList");
   const expenseBalance = document.getElementById("expenses");
 
-  incomeBalance.innerHTML = "Suma przychodów: " + incomes + " zł";
-  expenseBalance.innerHTML = "Suma wydatków: " + expenses + " zł";
+  incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
+  expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
   balance.innerHTML = "Bilans wynosi zero";
 
   function totalBalance() {
     wallet = incomes - expenses;
     if (wallet < 0) {
-      balance.innerHTML =
-        "Bilans jest ujemny. Jesteś na minusie " + wallet * -1 + " złotych";
+      balance.innerHTML = `Bilans jest ujemny. Jesteś na minusie   ${
+        wallet * -1
+      }   złotych`;
     } else if (wallet > 0) {
-      balance.innerHTML = "Możesz jeszcze wydać " + wallet + " złotych";
+      balance.innerHTML = `Możesz jeszcze wydać   ${wallet}   złotych`;
     } else {
       balance.innerHTML = "Bilans wynosi zero";
     }
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
         incomes -= incomesListPoint.dataset.amount - inputValue.value;
-        incomeBalance.innerHTML = "Suma przychodów: " + incomes + " zł";
+        incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
         totalBalance();
         incomesListPoint.dataset.name = inputName.value;
         incomesListPoint.dataset.amount = inputValue.value;
@@ -119,13 +120,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     btnRemoveIncome.addEventListener("click", (e) => {
       deleteElement();
       incomes -= parseFloat(incomesListPoint.dataset.amount);
-      incomeBalance.innerHTML = "Suma przychodów: " + incomes + " zł";
+      incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
       totalBalance();
       incomesListPoint.remove();
     });
 
     incomes += parseFloat(income.incomeValue);
-    incomeBalance.innerHTML = "Suma przychodów: " + incomes + " zł";
+    incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
     totalBalance();
   });
 
@@ -200,7 +201,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
-        expenseBalance.innerHTML = "Suma przychodów: " + expenses + " zł";
+        expenseBalance.innerHTML = `Suma przychodów:   ${expenses}   zł`;
         totalBalance();
         expensesListPoint.dataset.name = inputNameExpense.value;
         expensesListPoint.dataset.amount = inputValueExpense.value;
@@ -216,13 +217,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     btnRemoveExpense.addEventListener("click", (e) => {
       deleteElement();
       expenses -= parseFloat(expensesListPoint.dataset.amount);
-      expenseBalance.innerHTML = "Suma wydatków: " + expenses + " zł";
+      expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
       totalBalance();
       expensesListPoint.remove();
     });
 
     expenses += parseFloat(expense.expenseValue);
-    expenseBalance.innerHTML = "Suma wydatków: " + expenses + " zł";
+    expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
     totalBalance();
   });
 });
