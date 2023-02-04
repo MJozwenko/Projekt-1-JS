@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             inputName.value
           }: ${(inputValue.value = 0)} zł`;
         } else if (inputValue.value < 0) {
+          alert("Wartość nie może być ujemna");
           incomesListPoint.innerText = `${
             inputName.value
           }: ${(inputValue.value = 0)} zł`;
@@ -191,6 +192,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             inputNameExpense.value
           }: ${(inputValueExpense.value = 0)} zł`;
         } else if (inputValueExpense.value < 0) {
+          alert("Wartość nie może być ujemna");
           expensesListPoint.innerText = `${
             inputNameExpense.value
           }: ${(inputValueExpense.value = 0)} zł`;
