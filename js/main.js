@@ -49,13 +49,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   incomeMain.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    let income = {
+    const income = {
       title: inputIncome.value,
       incomeValue: inputIncomeValue.value,
     };
 
-    let incomesListPoint = document.createElement("li");
+    const incomesListPoint = document.createElement("li");
     incomesListPoint.innerText = `${income.title}: ${income.incomeValue} zł`;
     incomesListPoint.dataset.name = income.title;
     incomesListPoint.dataset.amount = income.incomeValue;
@@ -82,7 +81,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       inputValue.setAttribute("id", "editInputValueIncome");
       inputValue.setAttribute("type", "number");
       inputValue.setAttribute("min", "0");
-      inputValue.setAttribute("required", "required");
       const btnSaveIncome = document.createElement("button");
       btnSaveIncome.classList = "btnSave";
       btnSaveIncome.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -102,6 +100,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
           incomesListPoint.innerText = `${
             inputName.value
           }: ${(inputValue.value = 0)} zł`;
+        } else if (inputValue.value < 0) {
+          incomesListPoint.innerText = `${
+            inputName.value
+          }: ${(inputValue.value = 0)} zł`;
         }
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
@@ -113,7 +115,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       });
 
       btnCancelIncome.addEventListener("click", (e) => {
-        incomesListPoint.innerText = `${inputName.value} - ${inputValue.value} zł`;
+        incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
       });
@@ -137,12 +139,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
   expenseMain.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let expense = {
+    const expense = {
       title: inputExpenses.value,
       expenseValue: inputExpensesValue.value,
     };
 
-    let expensesListPoint = document.createElement("li");
+    const expensesListPoint = document.createElement("li");
     expensesListPoint.innerText = `${expense.title}: ${expense.expenseValue} zł`;
     expensesListPoint.dataset.name = expense.title;
     expensesListPoint.dataset.amount = expense.expenseValue;
@@ -185,6 +187,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
       btnSaveExpense.addEventListener("click", (e) => {
         expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
         if (inputValueExpense.value === "") {
+          expensesListPoint.innerText = `${
+            inputNameExpense.value
+          }: ${(inputValueExpense.value = 0)} zł`;
+        } else if (inputValueExpense.value < 0) {
           expensesListPoint.innerText = `${
             inputNameExpense.value
           }: ${(inputValueExpense.value = 0)} zł`;
