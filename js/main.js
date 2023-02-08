@@ -97,6 +97,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       btnSaveIncome.addEventListener("click", (e) => {
         incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
+        if (inputValue.value === "" || inputName.value === "") {
+          incomesListPoint.innerText = `${incomesListPoint.dataset.name}: ${incomesListPoint.dataset.amount} zł`;
+          incomesListPoint.appendChild(btnRemoveIncome);
+          incomesListPoint.appendChild(btnEditIncome);
+          return;
+        }
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
         incomes -= incomesListPoint.dataset.amount - inputValue.value;
@@ -179,6 +185,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       btnSaveExpense.addEventListener("click", (e) => {
         expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
+        if (inputValueExpense.value === "" || inputNameExpense.value === "") {
+          expensesListPoint.innerText = `${expensesListPoint.dataset.name}: ${expensesListPoint.dataset.amount} zł`;
+          expensesListPoint.appendChild(btnRemoveExpense);
+          expensesListPoint.appendChild(btnEdit);
+          return;
+        }
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
