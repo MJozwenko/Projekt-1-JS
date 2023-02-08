@@ -80,7 +80,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
       const inputValue = document.createElement("input");
       inputValue.setAttribute("id", "editInputValueIncome");
       inputValue.setAttribute("type", "number");
-      inputValue.setAttribute("min", "0");
+      inputValue.setAttribute("min", "1");
+      inputValue.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveIncome = document.createElement("button");
       btnSaveIncome.classList = "btnSave";
       btnSaveIncome.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -96,16 +97,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       btnSaveIncome.addEventListener("click", (e) => {
         incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
-        if (inputValue.value === "") {
-          incomesListPoint.innerText = `${
-            inputName.value
-          }: ${(inputValue.value = 0)} zł`;
-        } else if (inputValue.value < 0) {
-          alert("Wartość nie może być ujemna");
-          incomesListPoint.innerText = `${
-            inputName.value
-          }: ${(inputValue.value = 0)} zł`;
-        }
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
         incomes -= incomesListPoint.dataset.amount - inputValue.value;
@@ -116,7 +107,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       });
 
       btnCancelIncome.addEventListener("click", (e) => {
-        incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
+        incomesListPoint.innerText = `${incomesListPoint.dataset.name}: ${incomesListPoint.dataset.amount} zł`;
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
       });
@@ -171,7 +162,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
       const inputValueExpense = document.createElement("input");
       inputValueExpense.setAttribute("id", "editInputValueExpense");
       inputValueExpense.setAttribute("type", "number");
-      inputValueExpense.setAttribute("min", "0");
+      inputValueExpense.setAttribute("min", "1");
+      inputValueExpense.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveExpense = document.createElement("button");
       btnSaveExpense.classList = "btnSaveExpense";
       btnSaveExpense.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -187,16 +179,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       btnSaveExpense.addEventListener("click", (e) => {
         expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
-        if (inputValueExpense.value === "") {
-          expensesListPoint.innerText = `${
-            inputNameExpense.value
-          }: ${(inputValueExpense.value = 0)} zł`;
-        } else if (inputValueExpense.value < 0) {
-          alert("Wartość nie może być ujemna");
-          expensesListPoint.innerText = `${
-            inputNameExpense.value
-          }: ${(inputValueExpense.value = 0)} zł`;
-        }
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
@@ -207,7 +189,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       });
 
       btnCancelExpense.addEventListener("click", (e) => {
-        expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
+        expensesListPoint.innerText = `${expensesListPoint.dataset.name}: ${expensesListPoint.dataset.amount} zł`;
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
       });
