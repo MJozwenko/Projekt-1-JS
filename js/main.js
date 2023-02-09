@@ -96,13 +96,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
       incomesListPoint.appendChild(btnCancelIncome);
 
       btnSaveIncome.addEventListener("click", (e) => {
-        incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
         if (inputValue.value === "" || inputName.value === "") {
-          incomesListPoint.innerText = `${incomesListPoint.dataset.name}: ${incomesListPoint.dataset.amount} zł`;
-          incomesListPoint.appendChild(btnRemoveIncome);
-          incomesListPoint.appendChild(btnEditIncome);
+          alert("Wypełnij wszystkie pola");
+          document.getElementById("editInputValueIncome").focus();
           return;
         }
+        incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
         incomes -= incomesListPoint.dataset.amount - inputValue.value;
@@ -184,13 +183,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
       expensesListPoint.appendChild(btnCancelExpense);
 
       btnSaveExpense.addEventListener("click", (e) => {
-        expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
         if (inputValueExpense.value === "" || inputNameExpense.value === "") {
-          expensesListPoint.innerText = `${expensesListPoint.dataset.name}: ${expensesListPoint.dataset.amount} zł`;
-          expensesListPoint.appendChild(btnRemoveExpense);
-          expensesListPoint.appendChild(btnEdit);
+          alert("Wypełnij wszystkie pola");
+          document.getElementById("editInputValueExpense").focus();
           return;
         }
+        expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
