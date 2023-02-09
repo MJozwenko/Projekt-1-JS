@@ -96,9 +96,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
       incomesListPoint.appendChild(btnCancelIncome);
 
       btnSaveIncome.addEventListener("click", (e) => {
-        if (inputValue.value === "" || inputName.value === "") {
+        if (inputValue.value === "") {
           alert("Wypełnij wszystkie pola");
           document.getElementById("editInputValueIncome").focus();
+          return;
+        } else if (inputName.value === "") {
+          alert("Wypełnij wszystkie pola");
+          document.getElementById("editInputNameIncome").focus();
           return;
         }
         incomesListPoint.innerText = `${inputName.value}: ${inputValue.value} zł`;
@@ -183,9 +187,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
       expensesListPoint.appendChild(btnCancelExpense);
 
       btnSaveExpense.addEventListener("click", (e) => {
-        if (inputValueExpense.value === "" || inputNameExpense.value === "") {
+        if (inputValueExpense.value === "") {
           alert("Wypełnij wszystkie pola");
           document.getElementById("editInputValueExpense").focus();
+          return;
+        } else if (inputNameExpense.value === "") {
+          alert("Wypełnij wszystkie pola");
+          document.getElementById("editInputNameExpense").focus();
           return;
         }
         expensesListPoint.innerText = `${inputNameExpense.value}: ${inputValueExpense.value} zł`;
