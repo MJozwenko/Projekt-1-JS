@@ -248,7 +248,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     expenses += parseFloat(expense.expenseValue);
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
     totalBalance();
-    console.log(expenses);
   };
 
   expenseMain.addEventListener("submit", handleExpenseSubmit);
