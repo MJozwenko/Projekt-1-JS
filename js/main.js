@@ -243,11 +243,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       expensesListPoint.remove();
     };
 
-    btnRemoveExpense.addEventListener("click", handleBtnRemoveExpense);
-
     expenses += parseFloat(expense.expenseValue);
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
     totalBalance();
+
+    btnRemoveExpense.addEventListener("click", handleBtnRemoveExpense);
   };
 
   expenseMain.addEventListener("submit", handleExpenseSubmit);
