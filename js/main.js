@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       const inputValue = document.createElement("input");
       inputValue.setAttribute("id", "editInputValueIncome");
       inputValue.setAttribute("type", "number");
-      inputValue.setAttribute("min", "0");
+      inputValue.setAttribute("min", "0.01");
       inputValue.setAttribute("step", ".01");
       inputValue.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveIncome = document.createElement("button");
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       const inputValueExpense = document.createElement("input");
       inputValueExpense.setAttribute("id", "editInputValueExpense");
       inputValueExpense.setAttribute("type", "number");
-      inputValueExpense.setAttribute("min", "0");
+      inputValueExpense.setAttribute("min", "0.01");
       inputValueExpense.setAttribute("step", ".01");
       inputValueExpense.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveExpense = document.createElement("button");
