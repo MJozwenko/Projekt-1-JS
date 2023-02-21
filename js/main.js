@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const expensesList = document.getElementById("expensesList");
   const expenseBalance = document.getElementById("expenses");
 
-  incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
-  expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
+  incomeBalance.innerHTML = `Suma przychodów:   ${incomes.toFixed(2)}   zł`;
+  expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
   balance.innerHTML = "Bilans wynosi zero";
 
   function totalBalance() {
