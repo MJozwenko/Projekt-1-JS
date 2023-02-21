@@ -1,6 +1,6 @@
 let wallet = 0;
-let incomes = 0;
-let expenses = 0;
+let incomes = 0.0;
+let expenses = 0.0;
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const incomeMain = document.getElementById("incomeMain");
@@ -20,15 +20,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
   balance.innerHTML = "Bilans wynosi zero";
 
   function totalBalance() {
-    wallet = incomes - expenses;
+    wallet = (incomes - expenses).toFixed(2);
     if (wallet < 0) {
       balance.innerHTML = `Bilans jest ujemny. Jesteś na minusie   ${
         wallet * -1
       }   złotych`;
+      console.log(wallet);
     } else if (wallet > 0) {
       balance.innerHTML = `Możesz jeszcze wydać   ${wallet}   złotych`;
+      console.log(wallet);
     } else {
       balance.innerHTML = "Bilans wynosi zero";
+      console.log(wallet);
     }
   }
 
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   //Przychody
 
-  incomeMain.addEventListener("submit", (e) => {
+  const handleIncomeSubmit = (e) => {
     e.preventDefault();
     const income = {
       title: inputIncome.value,
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     inputIncome.value = "";
     inputIncomeValue.value = "";
 
-    btnEditIncome.addEventListener("click", (e) => {
+    const handleBtnEditIncome = (e) => {
       incomesListPoint.innerHTML = "";
       const inputName = document.createElement("input");
       inputName.setAttribute("id", "editInputNameIncome");
@@ -81,6 +84,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       inputValue.setAttribute("id", "editInputValueIncome");
       inputValue.setAttribute("type", "number");
       inputValue.setAttribute("min", "1");
+      inputValue.setAttribute("step", ".01");
       inputValue.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveIncome = document.createElement("button");
       btnSaveIncome.classList = "btnSave";
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       incomesListPoint.appendChild(btnSaveIncome);
       incomesListPoint.appendChild(btnCancelIncome);
 
-      btnSaveIncome.addEventListener("click", (e) => {
+      const handleBtnSaveIncome = (e) => {
         if (inputValue.value === "") {
           alert("Wypełnij wszystkie pola");
           document.getElementById("editInputValueIncome").focus();
@@ -113,31 +117,41 @@ document.addEventListener("DOMContentLoaded", (e) => {
         totalBalance();
         incomesListPoint.dataset.name = inputName.value;
         incomesListPoint.dataset.amount = inputValue.value;
-      });
+      };
 
-      btnCancelIncome.addEventListener("click", (e) => {
+      const handleBtnCancelIncome = (e) => {
         incomesListPoint.innerText = `${incomesListPoint.dataset.name}: ${incomesListPoint.dataset.amount} zł`;
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
-      });
-    });
+      };
 
-    btnRemoveIncome.addEventListener("click", (e) => {
+      btnSaveIncome.addEventListener("click", handleBtnSaveIncome);
+
+      btnCancelIncome.addEventListener("click", handleBtnCancelIncome);
+    };
+
+    btnEditIncome.addEventListener("click", handleBtnEditIncome);
+
+    const handleBtnRemoveIncome = (e) => {
       deleteElement();
       incomes -= parseFloat(incomesListPoint.dataset.amount);
-      incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
+      incomeBalance.innerHTML = `Suma przychodów:   ${incomes.toFixed(2)}   zł`;
       totalBalance();
       incomesListPoint.remove();
-    });
+    };
+
+    btnRemoveIncome.addEventListener("click", handleBtnRemoveIncome);
 
     incomes += parseFloat(income.incomeValue);
-    incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
+    incomeBalance.innerHTML = `Suma przychodów:   ${incomes.toFixed(2)}   zł`;
     totalBalance();
-  });
+  };
+
+  incomeMain.addEventListener("submit", handleIncomeSubmit);
 
   //Wydatki
 
-  expenseMain.addEventListener("submit", (e) => {
+  const handleExpenseSubmit = (e) => {
     e.preventDefault();
 
     const expense = {
@@ -164,7 +178,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     inputExpenses.value = "";
     inputExpensesValue.value = "";
 
-    btnEdit.addEventListener("click", (e) => {
+    const handleBtnEditExpense = (e) => {
       expensesListPoint.innerHTML = "";
       const inputNameExpense = document.createElement("input");
       inputNameExpense.setAttribute("id", "editInputNameExpense");
@@ -172,6 +186,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       inputValueExpense.setAttribute("id", "editInputValueExpense");
       inputValueExpense.setAttribute("type", "number");
       inputValueExpense.setAttribute("min", "1");
+      inputValueExpense.setAttribute("step", ".01");
       inputValueExpense.setAttribute("oninput", "validity.valid||(value='');");
       const btnSaveExpense = document.createElement("button");
       btnSaveExpense.classList = "btnSaveExpense";
@@ -186,7 +201,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       expensesListPoint.appendChild(btnSaveExpense);
       expensesListPoint.appendChild(btnCancelExpense);
 
-      btnSaveExpense.addEventListener("click", (e) => {
+      const handleBtnSaveExpense = (e) => {
         if (inputValueExpense.value === "") {
           alert("Wypełnij wszystkie pola");
           document.getElementById("editInputValueExpense").focus();
@@ -200,29 +215,39 @@ document.addEventListener("DOMContentLoaded", (e) => {
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
-        expenseBalance.innerHTML = `Suma przychodów:   ${expenses}   zł`;
+        expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
         totalBalance();
         expensesListPoint.dataset.name = inputNameExpense.value;
         expensesListPoint.dataset.amount = inputValueExpense.value;
-      });
+      };
 
-      btnCancelExpense.addEventListener("click", (e) => {
+      const handleBtnCancelExpense = (e) => {
         expensesListPoint.innerText = `${expensesListPoint.dataset.name}: ${expensesListPoint.dataset.amount} zł`;
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
-      });
-    });
+      };
 
-    btnRemoveExpense.addEventListener("click", (e) => {
+      btnSaveExpense.addEventListener("click", handleBtnSaveExpense);
+
+      btnCancelExpense.addEventListener("click", handleBtnCancelExpense);
+    };
+
+    btnEdit.addEventListener("click", handleBtnEditExpense);
+
+    const handleBtnRemoveExpense = (e) => {
       deleteElement();
       expenses -= parseFloat(expensesListPoint.dataset.amount);
-      expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
+      expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
       totalBalance();
       expensesListPoint.remove();
-    });
+    };
+
+    btnRemoveExpense.addEventListener("click", handleBtnRemoveExpense);
 
     expenses += parseFloat(expense.expenseValue);
-    expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
+    expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
     totalBalance();
-  });
+  };
+
+  expenseMain.addEventListener("submit", handleExpenseSubmit);
 });
