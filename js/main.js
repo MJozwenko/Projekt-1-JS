@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
         incomesListPoint.appendChild(btnRemoveIncome);
         incomesListPoint.appendChild(btnEditIncome);
         incomes -= incomesListPoint.dataset.amount - inputValue.value;
-        incomeBalance.innerHTML = `Suma przychodów:   ${incomes}   zł`;
+        incomeBalance.innerHTML = `Suma przychodów:   ${incomes.toFixed(
+          2
+        )}   zł`;
         totalBalance();
         incomesListPoint.dataset.name = inputName.value;
         incomesListPoint.dataset.amount = inputValue.value;
@@ -215,7 +217,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
         expensesListPoint.appendChild(btnRemoveExpense);
         expensesListPoint.appendChild(btnEdit);
         expenses -= expensesListPoint.dataset.amount - inputValueExpense.value;
-        expenseBalance.innerHTML = `Suma wydatków:   ${expenses}   zł`;
+        expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(
+          2
+        )}   zł`;
         totalBalance();
         expensesListPoint.dataset.name = inputNameExpense.value;
         expensesListPoint.dataset.amount = inputValueExpense.value;
