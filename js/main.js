@@ -1,6 +1,6 @@
 let wallet = 0;
-let incomes = 0.0;
-let expenses = 0.0;
+let incomes = 0;
+let expenses = 0;
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const incomeMain = document.getElementById("incomeMain");
