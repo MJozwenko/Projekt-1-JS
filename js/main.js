@@ -25,13 +25,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
       balance.innerHTML = `Bilans jest ujemny. Jesteś na minusie   ${
         wallet * -1
       }   złotych`;
-      console.log(wallet);
     } else if (wallet > 0) {
       balance.innerHTML = `Możesz jeszcze wydać   ${wallet}   złotych`;
-      console.log(wallet);
     } else {
       balance.innerHTML = "Bilans wynosi zero";
-      console.log(wallet);
     }
   }
 
@@ -251,9 +248,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     expenses += parseFloat(expense.expenseValue);
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
     totalBalance();
+    console.log(expenses);
   };
 
   expenseMain.addEventListener("submit", handleExpenseSubmit);
 });
-
-console.log(expenses);
