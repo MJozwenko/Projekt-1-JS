@@ -230,11 +230,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     expenses -= parseFloat(expensesListPoint.dataset.amount);
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
-    expensesListPoint.remove();
-    if (expenses <= 0) {
-      return (expenseBalance.innerHTML = `Suma wydatków:   0.00   zł`);
-    }
     totalBalance();
+    expensesListPoint.remove();
   };
 
   const addListElementExpense = (parentList, expense) => {
