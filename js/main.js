@@ -229,6 +229,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const expensesListPoint = e.target.parentElement;
 
     expenses -= parseFloat(expensesListPoint.dataset.amount);
+    if (expenses < 0) {
+      expenses = 0;
+    }
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
     totalBalance();
     expensesListPoint.remove();
