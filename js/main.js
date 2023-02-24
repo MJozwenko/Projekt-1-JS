@@ -32,19 +32,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   }
 
-  function deleteElement() {
-    let close = document.querySelectorAll(
-      "#btnRemoveIncome, #btnRemoveExpense"
-    );
-    let i;
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function () {
-        let elementToBeDeleted = this.parentElement;
-        elementToBeDeleted.remove();
-      };
-    }
-  }
-
   //Przychody
 
   const inputIncomeName = (e) => {
@@ -118,7 +105,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   const handleBtnRemoveIncome = (e) => {
     const incomesListPoint = e.target.parentElement;
-    deleteElement();
     incomes -= incomesListPoint.dataset.amount;
     incomeBalance.innerHTML = `Suma przychodów:   ${incomes.toFixed(2)}   zł`;
     totalBalance();
@@ -240,12 +226,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
   };
 
   const handleBtnRemoveExpense = (e) => {
+    console.log(expenses);
     const expensesListPoint = e.target.parentElement;
-    deleteElement();
+
     expenses -= parseFloat(expensesListPoint.dataset.amount);
     expenseBalance.innerHTML = `Suma wydatków:   ${expenses.toFixed(2)}   zł`;
-    totalBalance();
     expensesListPoint.remove();
+    if (expenses <= 0) {
+      return (expenseBalance.innerHTML = `Suma wydatków:   0.00   zł`);
+    }
+    totalBalance();
   };
 
   const addListElementExpense = (parentList, expense) => {
