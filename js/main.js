@@ -226,7 +226,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   };
 
   const handleBtnRemoveExpense = (e) => {
-    console.log(expenses);
     const expensesListPoint = e.target.parentElement;
 
     expenses -= parseFloat(expensesListPoint.dataset.amount);
