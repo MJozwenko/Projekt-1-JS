@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     const handleBtnCancelExpense = (e) => {
       expensesListPoint.innerText = `${expensesListPoint.dataset.name}: ${expensesListPoint.dataset.amount} zł`;
-      addButtons(expensesListPoint);
+      addButtonsExpense(expensesListPoint);
     };
 
     btnSaveExpense.addEventListener("click", handleBtnSaveExpense);
